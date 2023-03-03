@@ -1,0 +1,238 @@
+/* reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+}
+
+/* avoid seeing invisible SVG elements while loading; visibility will be restored on load event */
+#all {
+  visibility: hidden;
+}
+
+/* mobile and small tablet styles*/
+html, body {
+  height: 100%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  background-image: url("../images/wood-small.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  height: auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+.drawing {
+  width: 100%;
+}
+.wordguess {
+  font-family: 'Inconsolata', monospace;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wordguess div {
+  font-size: 1.8em;
+}
+.wordguess-exposed {
+  opacity: 0.4;
+}
+#alphabet {
+  font-family: 'Monofett', cursive;
+  color: black;
+  font-size: 2.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.letters {
+  display: flex;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.letters-selected {
+  opacity: 0.3;
+}
+.letters p {
+  padding: 0 1vw 0 1vw;
+  cursor: pointer;
+}
+#replay {
+  cursor: pointer;
+}
+
+/* micro-animations */
+@keyframes moveLeftLeaf {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+#left-leaf {
+  transform-origin: 200px 150px;
+  animation: moveLeftLeaf 3s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+}
+@keyframes moveRightLeaf {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+#right-leaf {
+  transform-origin: 230px 190px;
+  animation: moveRightLeaf 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+@keyframes rotateSunCenter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#center {
+  transform-origin: 895px 165px;
+  animation: rotateSunCenter 2s linear infinite;
+}
+@keyframes pulsatingSunRays {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+#rays {
+  transform-origin: 895px 165px;
+  animation: pulsatingSunRays 1s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+}
+@keyframes womanFlyAway {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  100% {
+    transform: translate(-100px, -700px) scale(0.6);
+  }
+}
+.womanDisappear {
+  transform-origin: 735px 455px;  /* center of body */
+  animation: womanFlyAway 3.5s forwards;
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+.womanJumping {
+  transform-origin: center;
+  animation: jump 0.7s cubic-bezier(0, 0.55, 0.45, 1) 0.1s 2 alternate;
+}
+@keyframes scaleLostSign {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    text-replace: scale(0.7);
+  }
+}
+.scalingLostSign {
+ transform-origin: center;
+ animation: scaleLostSign 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+@keyframes shakeReplayButton {
+  0% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(0deg);
+  }
+  47% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  52% {
+    transform: rotate(-10deg);
+  }
+  55% {
+    transform: rotate(3deg);
+  }
+  57% {
+    transform: rotate(0deg);
+  }
+  59% {
+    transform: rotate(8deg);
+  }
+  61% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+#replay {
+  transform-origin: center;
+  animation: shakeReplayButton 3s infinite alternate;
+}
+
+/* larger tablet styles*/
+@media screen and (min-width: 625px) {
+  body {
+    background-image: url("../images/wood-big.jpg");
+    background-position: right;
+  }
+  .drawing {
+    width: 50%;
+    margin: 0.4vw auto 0 auto;
+  }
+  .wordguess {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #alphabet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .letters p {
+    padding: 0 0.7vw 0 0.7vw;
+  }
+}
+
+/*laptop and desktop styles*/
+@media screen and (min-width: 950px) {
+  body {
+    font-size: 32px;
+  }
+  .drawing {
+    width: 75%;
+  }
+  .letters p {
+    padding: 0 0.5vw 0 0.5vw;
+  }
+}
