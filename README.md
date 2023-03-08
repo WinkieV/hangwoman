@@ -14,5 +14,5 @@ It's an online game and pretty straighforward. I think the visuals (with animati
 ![Hangwoman screenshot](./hangwoman-screenshot.jpg)
 
 ## Usage
-The words to guess are hard coded in the JavaScript file. One could of course choose to use an online dictionary API as an alternative source, but since I specifically wanted to use words that had a link to "tropical island living" I chose to hand-pick these words.
+The words to guess are hard coded in the JavaScript file. One could of course choose to use an online dictionary API as an alternative source, but since I specifically wanted to use words that had a link to "tropical island living" I chose to hand-pick these words.  
 Live demo of the game can be found here: https://rubberducky.rocks/projects/hangwoman/.
